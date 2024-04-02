@@ -1,0 +1,47 @@
+1. menampilkan judul film dan genrenya
+select film.judul_film, kategori.genre 
+from film, kategori 
+where film.fk_idgenre = kategori.id_genre
+
+2. menampilkan judul film, tahun rilis, dan genrenya
+select film.judul_film, film.tahun_rilis, kategori.genre 
+from film, kategori 
+where film.fk_idgenre = kategori.id_genre
+
+3. menampilkan judul film, tahun rilis dari film bergenre 'horor'
+select film.judul_film, film.tahun_rilis, kategori.genre  
+from film, kategori  
+where film.fk_idgenre = kategori.id_genre and film.fk_idgenre = 1
+
+4. menampilkan semua pada tabel aktor dengan kota lahir 'jakarta'
+select * from aktor 
+where aktor.kota_lahir = 'Jakarta'
+
+5. menampilkan semua pada tabel aktor dengan tahun lahir lebih dari 1985
+select * from aktor 
+where aktor.tahun_lahir > 1985
+
+6. menampilkan id_bintang, judul film dan aktornya
+select membintangi.id_bintang, film.judul_film, aktor.nama_aktor  
+from film, membintangi, aktor  
+where membintangi.film_id = film.id_film and membintangi.aktor_id = id_aktor
+
+7. menampilkan judul film dan aktornya
+select film.judul_film, aktor.nama_aktor  
+from film, membintangi, aktor  
+where membintangi.film_id = film.id_film and membintangi.aktor_id = id_aktor
+
+8. menampilkan judul film, aktor, dan tahun rilisnya
+select film.judul_film, aktor.nama_aktor, film.tahun_rilis 
+from film, membintangi, aktor 
+where membintangi.film_id = film.id_film and membintangi.aktor_id = id_aktor 
+
+9. menampilkan judul film, nama aktor, genre, dan tahun rilisnya
+select film.judul_film, aktor.nama_aktor, kategori.genre, film.tahun_rilis 
+from film, membintangi, aktor, kategori 
+where membintangi.film_id = film.id_film and membintangi.aktor_id = id_aktor and film.fk_idgenre = kategori.id_genre
+
+10. menampilkan judul film, nama aktor, genre, dan tahun rilisnya dengan genre 'comedy'
+select film.judul_film, aktor.nama_aktor, kategori.genre, film.tahun_rilis 
+from film, membintangi, aktor, kategori 
+where membintangi.film_id = film.id_film and membintangi.aktor_id = id_aktor and film.fk_idgenre = kategori.id_genre and kategori.genre= 'Comedy'
